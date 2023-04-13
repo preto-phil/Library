@@ -1,7 +1,7 @@
 
 * {
   box-sizing: border-box;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 body {
@@ -64,15 +64,22 @@ form {
 
 .form-grid {
   display: grid;
-  grid-template-rows: repeat(5, 80px);
+  grid-template-rows: repeat(5, 60px);
   grid-template-columns: 1fr 9fr;
   border: 1px solid black;
+}
+
+.form-grid > div {
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
 
 .item-1-A {
   grid-area: 1 / 1 / 2 / 2;
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  align-items: center;
 }
 
 .item-1-B {
@@ -103,8 +110,11 @@ form {
   grid-area: 4 / 2 / 5 / 3;
 }
 
-.item-5 {
+.form-grid > .item-5 {
   grid-area: 5 / 1 / 6 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 form > div {
