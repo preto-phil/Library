@@ -189,7 +189,9 @@ button:active {
   font-size: 1.1rem;
 }
 
-.content-grid > div::after {
+
+
+/* .content-grid div::after {
   content: "✖";
   color: rgb(0, 0, 0);
   font-size: 2rem;
@@ -199,6 +201,6 @@ button:active {
   top: -2px;
 }
 
-.content-grid > div:hover::after{
+.content-grid div:hover::after{
   color: rgb(255, 0, 0);
-}
+} */

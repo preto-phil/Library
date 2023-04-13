@@ -1,6 +1,6 @@
-let myLibrary = ['a', 'b'];
+let myLibrary = ['a', 'b', 'c'];
 
-bookLoop();
+firstBookLoop();
 
 /* // Book Constructor
 function Book(title, author, pages) {
@@ -39,16 +39,24 @@ function addToArray() {
 }
 
 // function that loops over array items
-function bookLoop() {
-  let createDiv = document.createElement("div");
-  let list = document.getElementById("list");
+function firstBookLoop() {
+    myLibrary.forEach((item) => {
+      const createDiv = document.createElement("div");
+      const list = document.getElementById("list");
+      createDiv.innerText = item;
+      list.append(createDiv);
+    })
+};
 
+function bookLoop() {
+  const createDiv = document.createElement("div");
+  const list = document.getElementById("list");
   myLibrary.forEach((item) => {
-    
     createDiv.innerText = item;
     list.append(createDiv);
   })
 };
+
 
 // Event listener
 const addBtn = document.getElementsByClassName("add-btn");
