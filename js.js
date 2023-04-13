@@ -18,15 +18,6 @@ function Book(title) {
   this.title = title
 }
 
-/* // Function that pushes to array
-function addBookToLibrary() {
-  // push info to array
-  const bookTitle = new Book(prompt("Title? ")) 
-  myLibrary.push(bookTitle.title);
-} */
-
-/* addBookToLibrary(); */
-
 // Dropdown onclick visibility
 function toggleFunction() {
   const targetDiv = document.getElementById("form-section");
