@@ -169,3 +169,20 @@ button:active {
   background-color: #fff;
 }
  */
+
+
+
+.content-grid {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.content-grid > div {
+  background-color: rgb(185, 187, 189);
+  padding: 10px;
+  border-radius: 6px;
+  color: rgb(51, 47, 47);
+  font-size: 1.1rem;
+}

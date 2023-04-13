@@ -38,12 +38,12 @@ function addToArray() {
 
 // function that loops over array items
 function bookLoop() {
-  let createList = document.createElement("li");
+  let createDiv = document.createElement("div");
   let list = document.getElementById("list");
 
   myLibrary.forEach((item) => {
-    createList.innerText = item;
-    list.append(createList);
+    createDiv.innerText = item;
+    list.append(createDiv);
   })
 };
 
