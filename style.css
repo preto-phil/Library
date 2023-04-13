@@ -53,7 +53,6 @@ button {
 }
 
 
-
 form {
   background-color: rgb(226, 222, 222);
   color: rgb(51, 47, 47);
@@ -119,16 +118,12 @@ form {
 
 form > div {
   padding: 0 20px 0 20px;
-/*   display: flex;
-  justify-content: start;
-  align-items: center; */
 }
 
 label {
   appearance: none;
   margin: 10px 0;
 
-/*   width: 10%; */
   font-size: 1rem;
 }
 
@@ -157,21 +152,6 @@ input#read-box {
   align-items: center;
 }
 
-
-/* input:hover,
-button:hover {
-  background-color: rgb(216, 216, 216);
-}
-
-input:focus,
-button:active {
-  font-size: 1.1rem;
-  background-color: #fff;
-}
- */
-
-
-
 .content-grid {
   display: grid;
   grid-template-rows: 1fr;
@@ -188,19 +168,3 @@ button:active {
   color: rgb(51, 47, 47);
   font-size: 1.1rem;
 }
-
-
-
-/* .content-grid div::after {
-  content: "✖";
-  color: rgb(0, 0, 0);
-  font-size: 2rem;
-  position: absolute;
-  padding: 5px 10px;
-  right: 0px;
-  top: -2px;
-}
-
-.content-grid div:hover::after{
-  color: rgb(255, 0, 0);
-} */
