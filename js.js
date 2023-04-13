@@ -21,9 +21,9 @@ function bookLoop() {
 // Dropdown onclick visibility
 function toggleFunction() {
   const targetDiv = document.getElementById("form-section");
-  if (targetDiv.style.display !== "none") {
-    targetDiv.style.display = "none";
-  } else {
+  if (targetDiv.style.display === "none") {
     targetDiv.style.display = "block";
+  } else {
+    targetDiv.style.display = "none";
   }
 }
