@@ -2,10 +2,11 @@ let myLibrary = ['a', 'b', 'c'];
 
 function Book() {
   // the constructor...
+
 }
 
 function addBookToLibrary() {
-  // do stuff here
+  // push info to array
 }
 
 // function that loops

@@ -9,6 +9,8 @@
 </head>
 <body>
 
+  <!--  Content Section -->
+
   <h1>Library</h1>
   <h2>Books: </h2>
   <div>
@@ -18,11 +20,43 @@
       <li>C</li>
     </ol>
   </div>
-  <div class="add">
-    <input type="text" name="book" id="new-book" placeholder="Insert book title here">
-    <span>
-      <button>Add Book</button>
-    </span>
+
+  <!-- Dropdown Button -->
+
+  <div class="drop-btn">
+      <button>New Book</button>
+  </div>
+
+  <!-- Form Section  --> 
+
+  <div class="form-section">
+    <form>
+
+        <div>
+          <label for="title">Title:</label>
+          <input type="text" name="title" id="title" placeholder="Insert book title here">
+        </div>
+        
+        <div>
+          <label for="author">Author:</label>
+          <input type="text" name="author" id="author" placeholder="Insert book author here">
+        </div>
+        
+        <div>
+          <label for="pages">Pages:</label>
+          <input type="tel" name="pages" id="pages" placeholder="Insert book page number here">
+        </div>
+        
+        <div>
+          <label for="read-box">Read:</label>
+          <input type="checkbox" name="read-box" id="read-box">
+        </div>
+        
+        <div>
+          <button>Add Book</button>
+        </div>
+
+    </form>
   </div>
   
   <script src="./js.js"></script>
