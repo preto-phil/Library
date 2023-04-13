@@ -1,4 +1,4 @@
-/* let myLibrary = ['a', 'b', 'c'];
+let myLibrary = [];
 
 function Book(title, author, pages) {
   // the constructor...
@@ -14,15 +14,20 @@ function addBookToLibrary() {
   // push info to array
 }
 
+
 // function that loops
 function bookLoop() {
-  for (book in myLibrary) {
-    // add book info to page
-    // create a div or table
-    // add text content to div or table
+  myLibrary.forEach((item) => {
+    let createList = document.createElement("li");
+    let list = document.getElementById("list");
+    createList.innerText = item;
+    list.append(createList);
+  })
+  
 
-  }
-}; */
+};
+
+bookLoop();
 
 // Dropdown onclick visibility
 function toggleFunction() {
@@ -34,22 +39,8 @@ function toggleFunction() {
   }
 }
 
-
-// Add items to list
-function addBook() {
-  const newLi = document.createElement("li");
-  const list = document.getElementById("list");
-  newLi.innerText = "Book Stuff";
-  list.append(newLi);
-}
-
 // Event listener
 const addBtn = document.getElementsByClassName("add-btn");
-addBtn[0].addEventListener("click", addBook);
-
-
-// Prevent Default
-function addBtnClick(event) {
-  document.getElementsByClassName("add-btn");
-  event.preventDefault();
-}
+addBtn[0].addEventListener("click", addBook, function(event) {
+  event.preventDefault()
+});
