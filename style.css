@@ -1,4 +1,9 @@
 
+* {
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+
 body {
   width: 50%;
   margin: auto;
@@ -29,18 +34,9 @@ li {
 }
 
 .drop-btn {
-  margin-top: 50px;
+  margin: 50px 0;
   display: flex;
   justify-content: center;
-}
-
-input {
-  padding: 10px;
-
-  font-size: 1rem;
-
-  border: none;
-  border-radius: 4px;
 }
 
 button {
@@ -48,12 +44,121 @@ button {
 
   margin-left: 10px;
 
+  font-size: 1.5rem;
+
+  border: 1px solid rgb(202, 198, 198);
+  border-radius: 4px;
+
+  cursor: pointer;
+}
+
+
+
+form {
+  background-color: rgb(226, 222, 222);
+  color: rgb(51, 47, 47);
+}
+
+
+/* Grid Layout */
+
+.form-grid {
+  display: grid;
+  grid-template-rows: repeat(5, 80px);
+  grid-template-columns: 1fr 9fr;
+  border: 1px solid black;
+}
+
+.item-1-A {
+  grid-area: 1 / 1 / 2 / 2;
+  display: flex;
+  justify-content: center;
+}
+
+.item-1-B {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.item-2-A {
+  grid-area: 2 / 1 / 3 / 2;
+}
+
+.item-2-B {
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+.item-3-A {
+  grid-area: 3 / 1 / 4 / 2;
+}
+
+.item-3-B {
+  grid-area: 3 / 2 / 4 / 3;
+}
+
+.item-4-A {
+  grid-area: 4 / 1 / 5 / 2;
+}
+
+.item-4-B {
+  grid-area: 4 / 2 / 5 / 3;
+}
+
+.item-5 {
+  grid-area: 5 / 1 / 6 / 3;
+}
+
+form > div {
+  padding: 0 20px 0 20px;
+/*   display: flex;
+  justify-content: start;
+  align-items: center; */
+}
+
+label {
+  appearance: none;
+  margin: 10px 0;
+
+/*   width: 10%; */
+  font-size: 1rem;
+}
+
+input {
+  padding: 10px;
+  margin: 10px 0;
+
+  width: 90%;
+
   font-size: 1rem;
 
   border: none;
   border-radius: 4px;
+}
 
-  cursor: pointer;
+/* .check {
+  border: 1px solid;
+  
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+}
+ */
+/* .check label,
+.check input {
+  border: 1px dashed;
+}
+ */
+
+ input[type="checkbox"] {
+  width: 20px;
+}
+
+
+.form-btn {
+  padding: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 

@@ -18,7 +18,7 @@ function bookLoop() {
   }
 }; */
 
-// Dropdown onclick visibility
+/* // Dropdown onclick visibility
 function toggleFunction() {
   const targetDiv = document.getElementById("form-section");
   if (targetDiv.style.display === "none") {
@@ -26,4 +26,4 @@ function toggleFunction() {
   } else {
     targetDiv.style.display = "none";
   }
-}
+} */
