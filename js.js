@@ -37,38 +37,41 @@ function toggleFunction() {
   }
 }
 
-// Event listener
-const addBtn = document.getElementsByClassName("add-btn");
-addBtn[0].addEventListener("click", makeArray, function(event) {
-  event.preventDefault()
-});
-
-
 // link input to title
-function makeArray() {
+function addToArray() {
   let inputTitle = document.getElementById("title").value;
   myLibrary.push(inputTitle); 
   console.log(inputTitle); 
   console.log(myLibrary);
 }
 
-/* // function that loops over array items
+// function that loops over array items
 function bookLoop() {
+  let createList = document.createElement("li");
+  let list = document.getElementById("list");
+
   myLibrary.forEach((item) => {
-    let createList = document.createElement("li");
-    let list = document.getElementById("list");
     createList.innerText = item;
     list.append(createList);
   })
-}; */
-
-function bookLoop() {
-  
-  for (item in myLibrary) {
-    let createList = document.createElement("li");
-    let list = document.getElementById("list");
-    createList.innerText = item;
-    list.append(createList);
-  }
 };
 
+// Event listener
+const addBtn = document.getElementsByClassName("add-btn");
+addBtn[0].addEventListener("click", addToArray, bookLoop, function(event) {
+  event.preventDefault()
+});
+
+const addListBtn = document.getElementsByClassName("add-btn");
+addBtn[0].addEventListener("click", bookLoop, function(event) {
+  event.preventDefault()
+});
+
+function clearForm() {
+  document.getElementById("form").reset();
+}
+
+const addResetBtn = document.getElementsByClassName("add-btn");
+addBtn[0].addEventListener("click", clearForm, function(event) {
+  event.preventDefault()
+});
