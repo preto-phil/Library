@@ -1,5 +1,6 @@
 let myLibrary = [];
 
+/* // Book Constructor
 function Book(title, author, pages) {
   // the constructor...
   this.title = title
@@ -9,25 +10,22 @@ function Book(title, author, pages) {
 		return(`${title} by ${author}, ${pages} pages`)
 	}
 }
+ */
 
-function addBookToLibrary() {
-  // push info to array
+
+// Alternative and easier constructor
+function Book(title) {
+  this.title = title
 }
 
+/* // Function that pushes to array
+function addBookToLibrary() {
+  // push info to array
+  const bookTitle = new Book(prompt("Title? ")) 
+  myLibrary.push(bookTitle.title);
+} */
 
-// function that loops
-function bookLoop() {
-  myLibrary.forEach((item) => {
-    let createList = document.createElement("li");
-    let list = document.getElementById("list");
-    createList.innerText = item;
-    list.append(createList);
-  })
-  
-
-};
-
-bookLoop();
+/* addBookToLibrary(); */
 
 // Dropdown onclick visibility
 function toggleFunction() {
@@ -41,6 +39,36 @@ function toggleFunction() {
 
 // Event listener
 const addBtn = document.getElementsByClassName("add-btn");
-addBtn[0].addEventListener("click", addBook, function(event) {
+addBtn[0].addEventListener("click", makeArray, function(event) {
   event.preventDefault()
 });
+
+
+// link input to title
+function makeArray() {
+  let inputTitle = document.getElementById("title").value;
+  myLibrary.push(inputTitle); 
+  console.log(inputTitle); 
+  console.log(myLibrary);
+}
+
+/* // function that loops over array items
+function bookLoop() {
+  myLibrary.forEach((item) => {
+    let createList = document.createElement("li");
+    let list = document.getElementById("list");
+    createList.innerText = item;
+    list.append(createList);
+  })
+}; */
+
+function bookLoop() {
+  
+  for (item in myLibrary) {
+    let createList = document.createElement("li");
+    let list = document.getElementById("list");
+    createList.innerText = item;
+    list.append(createList);
+  }
+};
+
