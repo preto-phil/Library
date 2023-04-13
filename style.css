@@ -177,6 +177,8 @@ button:active {
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
   gap: 10px;
+
+  position: relative;
 }
 
 .content-grid > div {
@@ -185,4 +187,18 @@ button:active {
   border-radius: 6px;
   color: rgb(51, 47, 47);
   font-size: 1.1rem;
+}
+
+.content-grid > div::after {
+  content: "✖";
+  color: rgb(0, 0, 0);
+  font-size: 2rem;
+  position: absolute;
+  padding: 5px 10px;
+  right: 0px;
+  top: -2px;
+}
+
+.content-grid > div:hover::after{
+  color: rgb(255, 0, 0);
 }

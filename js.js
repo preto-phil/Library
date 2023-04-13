@@ -1,4 +1,6 @@
-let myLibrary = [];
+let myLibrary = ['a', 'b'];
+
+bookLoop();
 
 /* // Book Constructor
 function Book(title, author, pages) {
@@ -42,6 +44,7 @@ function bookLoop() {
   let list = document.getElementById("list");
 
   myLibrary.forEach((item) => {
+    
     createDiv.innerText = item;
     list.append(createDiv);
   })
