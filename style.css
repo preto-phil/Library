@@ -144,24 +144,10 @@ input {
   border-radius: 4px;
 }
 
-/* .check {
-  border: 1px solid;
-  
-  display: flex;
-  justify-content: start;
-  align-items: flex-start;
-}
- */
-/* .check label,
-.check input {
-  border: 1px dashed;
-}
- */
-
- input[type="checkbox"] {
+input#read-box {
   width: 20px;
+  height: 20px;
 }
-
 
 .form-btn {
   padding: 20px;
