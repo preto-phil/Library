@@ -61,7 +61,7 @@ function validateForm() {
     author.classList.add("invalidAuthor");
     authorValidity = false;
   } else {
-    title.classList.remove("invalidTitle");
+    title.classList.remove("invalidAuthor");
     authorValidity = true;
   }
   
@@ -69,7 +69,7 @@ function validateForm() {
     genre.classList.add("invalidGenre");
     genreValidity = false;
   } else {
-    title.classList.remove("invalidTitle");
+    title.classList.remove("invalidGenre");
     genreValidity = true;
   }
   
@@ -77,7 +77,7 @@ function validateForm() {
     pages.classList.add("invalidPages");
     pagesValidity = false;
   } else {
-    title.classList.remove("invalidTitle");
+    title.classList.remove("invalidPages");
     pagesValidity = true;
   }
   console.log(titleValidity)
