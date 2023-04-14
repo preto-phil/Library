@@ -153,9 +153,4 @@ function deleteRows() {
   }
 }
 
-console.log(titleValidity)
-console.log(authorValidity)
-console.log(genreValidity)
-console.log(pagesValidity)
-
 ////////////// Experimental area
