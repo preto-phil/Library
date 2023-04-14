@@ -214,7 +214,10 @@ input#read-box {
 
 
 /* Add invalid and valid form stuff */
-/* 
-input:invalid {
+
+.invalidTitle,
+.invalidAuthor,
+.invalidGenre,
+.invalidPages {
   border: 1px solid red;
-} */
+}

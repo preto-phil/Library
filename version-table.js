@@ -32,6 +32,66 @@ function Book(title, author, genre, pages, read) {
 	} */
 }
 
+// Variable 
+let titleValidity;
+let authorValidity;
+let genreValidity;
+let pagesValidity;
+
+// Validate form
+function validateForm() {
+  let title = document.getElementById("title")
+  let titleValue = document.getElementById("title").value;
+  let author = document.getElementById("author")
+  let authorValue = document.getElementById("author").value;
+  let genre = document.getElementById("genre")
+  let genreValue = document.getElementById("genre").value;
+  let pages = document.getElementById("pages")
+  let pagesValue = document.getElementById("pages").value;
+  
+  if (titleValue == "") {
+    title.classList.add("invalidTitle");
+    titleValidity = false;
+  } else {
+    title.classList.remove("invalidTitle");
+    titleValidity = true;
+  }
+
+  if (authorValue == "") {
+    author.classList.add("invalidAuthor");
+    authorValidity = false;
+  } else {
+    title.classList.remove("invalidTitle");
+    authorValidity = true;
+  }
+  
+  if (genreValue == "") {
+    genre.classList.add("invalidGenre");
+    genreValidity = false;
+  } else {
+    title.classList.remove("invalidTitle");
+    genreValidity = true;
+  }
+  
+  if (pagesValue == "" || pagesValue == 0) {
+    pages.classList.add("invalidPages");
+    pagesValidity = false;
+  } else {
+    title.classList.remove("invalidTitle");
+    pagesValidity = true;
+  }
+  console.log(titleValidity)
+  console.log(authorValidity)
+  console.log(genreValidity)
+  console.log(pagesValidity)
+}
+
+// Call validateForm
+const addBtn = document.getElementsByClassName("add-btn");
+addBtn[0].addEventListener("click", validateForm, function(event) {
+  event.preventDefault()
+});
+
 // link input to title
 function addToArray() {
   let title = document.getElementById("title").value;
@@ -43,21 +103,11 @@ function addToArray() {
   console.log(myLibrary);
 }
 
-// Call addToArray
-const addBtn = document.getElementsByClassName("add-btn");
-addBtn[0].addEventListener("click", addToArray, function(event) {
-  event.preventDefault()
-});
 
 // Reset form
 function clearForm() {
   document.getElementById("form").reset();
 }
-
-// Call clearForm
-addBtn[0].addEventListener("click", clearForm, function(event) {
-  event.preventDefault()
-});
 
 // Function that adds rows and cells to table
 function addRow() {
@@ -93,38 +143,39 @@ function deleteRows() {
   }
 }
 
-// Call addRow
-addBtn[0].addEventListener("click", addRow, function(event) {
-  event.preventDefault()
-});
+
 
 ////////////// Experimental area
 
-// Validate form
-function validateForm() {
-  let title = document.getElementById("title")
-  let titleValue = document.getElementById("title").value;
-  let author = document.getElementById("author")
-  let authorValue = document.getElementById("author").value;
-  let genre = document.getElementById("genre")
-  let genreValue = document.getElementById("genre").value;
-  let pages = document.getElementById("pages")
-  let pagesValue = document.getElementById("pages").value;
-  if (titleValue == "") {
-    title.classList.add("invalidTitle");
+function callFunction() {
+
+  console.log(titleValidity)
+  console.log(authorValidity)
+  console.log(genreValidity)
+  console.log(pagesValidity)
+
+  const addBtn = document.getElementsByClassName("add-btn");
+
+  // Call addToArray
+  if ( titleValidity === true && authorValidity === true && genreValidity === true && pagesValidity === true ) {
+    addBtn[0].addEventListener("click", addToArray, function(event) {
+      event.preventDefault()
+    });
+    }
+
+  // Call clearForm
+  if (titleValidity === true && authorValidity === true && genreValidity === true && pagesValidity === true) {
+  addBtn[0].addEventListener("click", clearForm, function(event) {
+    event.preventDefault()
+  });
   }
-  if (authorValue == "") {
-    author.classList.add("invalidAuthor");
-  }
-  if (genreValue == "") {
-    genre.classList.add("invalidGenre");
-  }
-  if (pagesValue == "" || pagesValue == 0) {
-    pages.classList.add("invalidPages");
+
+  // Call addRow
+  if (titleValidity === true && authorValidity === true && genreValidity === true && pagesValidity === true) {
+    addBtn[0].addEventListener("click", addRow, function(event) {
+      event.preventDefault()
+    });
   }
 }
 
-// Call validateForm
-addBtn[0].addEventListener("click", validateForm, function(event) {
-  event.preventDefault()
-});
+
