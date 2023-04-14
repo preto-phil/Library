@@ -61,7 +61,7 @@ function validateForm() {
     author.classList.add("invalidAuthor");
     authorValidity = false;
   } else {
-    title.classList.remove("invalidAuthor");
+    author.classList.remove("invalidAuthor");
     authorValidity = true;
   }
   
@@ -69,7 +69,7 @@ function validateForm() {
     genre.classList.add("invalidGenre");
     genreValidity = false;
   } else {
-    title.classList.remove("invalidGenre");
+    genre.classList.remove("invalidGenre");
     genreValidity = true;
   }
   
@@ -77,18 +77,28 @@ function validateForm() {
     pages.classList.add("invalidPages");
     pagesValidity = false;
   } else {
-    title.classList.remove("invalidPages");
+    pages.classList.remove("invalidPages");
     pagesValidity = true;
   }
-  console.log(titleValidity)
-  console.log(authorValidity)
-  console.log(genreValidity)
-  console.log(pagesValidity)
 }
 
 // Call validateForm
 const addBtn = document.getElementsByClassName("add-btn");
 addBtn[0].addEventListener("click", validateForm, function(event) {
+  event.preventDefault()
+});
+
+// Function with diff calls
+function callFunction() {
+  if ( titleValidity === true && authorValidity === true && genreValidity === true && pagesValidity === true ) {
+    addToArray();
+    clearForm();
+    addRow();
+  }
+}
+
+// Call callFunction
+addBtn[0].addEventListener("click", callFunction, function(event) {
   event.preventDefault()
 });
 
@@ -143,39 +153,9 @@ function deleteRows() {
   }
 }
 
-
+console.log(titleValidity)
+console.log(authorValidity)
+console.log(genreValidity)
+console.log(pagesValidity)
 
 ////////////// Experimental area
-
-function callFunction() {
-
-  console.log(titleValidity)
-  console.log(authorValidity)
-  console.log(genreValidity)
-  console.log(pagesValidity)
-
-  const addBtn = document.getElementsByClassName("add-btn");
-
-  // Call addToArray
-  if ( titleValidity === true && authorValidity === true && genreValidity === true && pagesValidity === true ) {
-    addBtn[0].addEventListener("click", addToArray, function(event) {
-      event.preventDefault()
-    });
-    }
-
-  // Call clearForm
-  if (titleValidity === true && authorValidity === true && genreValidity === true && pagesValidity === true) {
-  addBtn[0].addEventListener("click", clearForm, function(event) {
-    event.preventDefault()
-  });
-  }
-
-  // Call addRow
-  if (titleValidity === true && authorValidity === true && genreValidity === true && pagesValidity === true) {
-    addBtn[0].addEventListener("click", addRow, function(event) {
-      event.preventDefault()
-    });
-  }
-}
-
-
