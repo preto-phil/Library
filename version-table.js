@@ -21,7 +21,31 @@ let myLibrary = [
   }
 ];
 
-// function that loops over array items
+// Book Constructor
+function Book(title, author, genre, pages, read) {
+  this.title = title
+  this.author = author
+  this.genre = genre
+  this.pages = pages
+/*   this.read = read
+  this.info = function() {
+		return(`${title} by ${author}, ${pages} pages`)
+	} */
+}
+
+// link input to title
+function addToArray() {
+  let title = document.getElementById("title").value;
+  let author = document.getElementById("author").value;
+  let genre = document.getElementById("genre").value;
+  let pages = document.getElementById("pages").value;
+  let newBook = new Book(title, author, genre, pages);
+  myLibrary.push(newBook);
+  console.log(myLibrary);
+}
+
+
+/* // function that loops over array items
 function firstBookLoop() {
   myLibrary.forEach((item) => {
     const createDiv = document.createElement("div");
@@ -35,33 +59,6 @@ function firstBookLoop() {
 firstBookLoop();
 
 
-// Book Constructor
-function Book2(title, author, pages) {
-  this.title = title
-  this.author = author
-  this.pages = pages
-  this.info = function() {
-		return(`${title} by ${author}, ${pages} pages`)
-	}
-}
-
-
-// Alternative and easier constructor
-function Book(title) {
-  this.title = title
-}
-
-
-// link input to title
-function addToArray() {
-  let inputTitle = document.getElementById("title").value;
-  myLibrary.push(inputTitle);
-  // instead of pushing to array push to new object 
-  // push each individual property (title, author, pages)
-  // then push object with all properties to array
-  console.log(inputTitle); 
-  console.log(myLibrary);
-}
 
 // Function that loops over array an adds div
 function bookLoop() {
@@ -71,7 +68,7 @@ function bookLoop() {
     createDiv.innerText = item;
     list.append(createDiv);
   })
-};
+}; */
 
 
 // Call addToArray
@@ -80,11 +77,11 @@ addBtn[0].addEventListener("click", addToArray, function(event) {
   event.preventDefault()
 });
 
-// Call bookLoop
+/* // Call bookLoop
 const addListBtn = document.getElementsByClassName("add-btn");
 addBtn[0].addEventListener("click", bookLoop, function(event) {
   event.preventDefault()
-});
+}); */
 
 // Reset form
 function clearForm() {
@@ -99,5 +96,3 @@ addBtn[0].addEventListener("click", clearForm, function(event) {
 
 
 ////////////// Experimental area
-
-myLibrary.prototype.push()
