@@ -214,4 +214,7 @@ input#read-box {
 
 
 /* Add invalid and valid form stuff */
-
+/* 
+input:invalid {
+  border: 1px solid red;
+} */

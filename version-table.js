@@ -55,7 +55,6 @@ function clearForm() {
 }
 
 // Call clearForm
-const addResetBtn = document.getElementsByClassName("add-btn");
 addBtn[0].addEventListener("click", clearForm, function(event) {
   event.preventDefault()
 });
@@ -95,9 +94,37 @@ function deleteRows() {
 }
 
 // Call addRow
-const addListBtn = document.getElementsByClassName("add-btn");
 addBtn[0].addEventListener("click", addRow, function(event) {
   event.preventDefault()
 });
 
 ////////////// Experimental area
+
+// Validate form
+function validateForm() {
+  let title = document.getElementById("title")
+  let titleValue = document.getElementById("title").value;
+  let author = document.getElementById("author")
+  let authorValue = document.getElementById("author").value;
+  let genre = document.getElementById("genre")
+  let genreValue = document.getElementById("genre").value;
+  let pages = document.getElementById("pages")
+  let pagesValue = document.getElementById("pages").value;
+  if (titleValue == "") {
+    title.classList.add("invalidTitle");
+  }
+  if (authorValue == "") {
+    author.classList.add("invalidAuthor");
+  }
+  if (genreValue == "") {
+    genre.classList.add("invalidGenre");
+  }
+  if (pagesValue == "" || pagesValue == 0) {
+    pages.classList.add("invalidPages");
+  }
+}
+
+// Call validateForm
+addBtn[0].addEventListener("click", validateForm, function(event) {
+  event.preventDefault()
+});
