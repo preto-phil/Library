@@ -9,7 +9,6 @@ function toggleFunction() {
   }
 }
 
-
 // Library Array
 let myLibrary = [
   {
@@ -44,44 +43,11 @@ function addToArray() {
   console.log(myLibrary);
 }
 
-
-/* // function that loops over array items
-function firstBookLoop() {
-  myLibrary.forEach((item) => {
-    const createDiv = document.createElement("div");
-    const list = document.getElementById("list");
-    createDiv.innerText = item;
-    list.append(createDiv);
-  })
-};
-
-// Call firstBookLoop
-firstBookLoop();
-
-
-
-// Function that loops over array an adds div
-function bookLoop() {
-  const createDiv = document.createElement("div");
-  const list = document.getElementById("list");
-  myLibrary.forEach((item) => {
-    createDiv.innerText = item;
-    list.append(createDiv);
-  })
-}; */
-
-
 // Call addToArray
 const addBtn = document.getElementsByClassName("add-btn");
 addBtn[0].addEventListener("click", addToArray, function(event) {
   event.preventDefault()
 });
-
-/* // Call bookLoop
-const addListBtn = document.getElementsByClassName("add-btn");
-addBtn[0].addEventListener("click", bookLoop, function(event) {
-  event.preventDefault()
-}); */
 
 // Reset form
 function clearForm() {
@@ -94,21 +60,7 @@ addBtn[0].addEventListener("click", clearForm, function(event) {
   event.preventDefault()
 });
 
-
-////////////// Experimental area
-
-/* // Function that loops over array an adds div
-function bookLoop() {
-  const createTR = document.createElement("tr");
-  const createTD = document.createElement("td");
-  const body = document.getElementById("body");
-  myLibrary.forEach((item) => {
-    createTR.innerText = item;
-    body.append(createTR);
-  })
-}; */
-
-
+// Function that adds rows and cells to table
 function addRow() {
   let table = document.getElementById("bookTable");
   deleteRows();
@@ -132,7 +84,6 @@ function addRow() {
   }
 }
 
-
 // Function that removes existing rows
 function deleteRows() {
   let tableHeaderRowCount = 1;
@@ -143,9 +94,10 @@ function deleteRows() {
   }
 }
 
-
 // Call addRow
 const addListBtn = document.getElementsByClassName("add-btn");
 addBtn[0].addEventListener("click", addRow, function(event) {
   event.preventDefault()
 });
+
+////////////// Experimental area
