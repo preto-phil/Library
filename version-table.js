@@ -96,3 +96,56 @@ addBtn[0].addEventListener("click", clearForm, function(event) {
 
 
 ////////////// Experimental area
+
+/* // Function that loops over array an adds div
+function bookLoop() {
+  const createTR = document.createElement("tr");
+  const createTD = document.createElement("td");
+  const body = document.getElementById("body");
+  myLibrary.forEach((item) => {
+    createTR.innerText = item;
+    body.append(createTR);
+  })
+}; */
+
+
+function addRow() {
+  let table = document.getElementById("bookTable");
+  deleteRows();
+  for (let obj of myLibrary) {
+    let row = table.insertRow(-1);
+    let cellTitle = row.insertCell(0);
+    let cellAuthor = row.insertCell(1);
+    let cellGenre = row.insertCell(2);
+    let cellPages = row.insertCell(3);
+    let cellRead = row.insertCell(4);
+    let cellEdit = row.insertCell(5);
+    let cellDelete = row.insertCell(6);
+  
+    cellTitle.textContent = obj.title;
+    cellAuthor.innerText = obj.author;
+    cellGenre.innerText = obj.genre;
+    cellPages.innerText = obj.genre;
+    cellRead.innerText = "TBC";
+    cellEdit.innerText = "TBC";
+    cellDelete.innerText = "TBC";
+  }
+}
+
+
+// Function that removes existing rows
+function deleteRows() {
+  let tableHeaderRowCount = 1;
+  let table = document.getElementById("bookTable");
+  let rowCount = table.rows.length;
+  for (let i = tableHeaderRowCount; i < rowCount; i++) {
+    table.deleteRow(tableHeaderRowCount);
+  }
+}
+
+
+// Call addRow
+const addListBtn = document.getElementsByClassName("add-btn");
+addBtn[0].addEventListener("click", addRow, function(event) {
+  event.preventDefault()
+});
