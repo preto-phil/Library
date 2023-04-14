@@ -11,7 +11,15 @@ function toggleFunction() {
 
 
 // Library Array
-let myLibrary = ['a', 'b', 'c'];
+let myLibrary = [
+  {
+    title: "The Hobbit",
+    author: "J.R.R Tolkien",
+    genre: "Fantasy",
+    pages: 296,
+    read: true
+  }
+];
 
 // function that loops over array items
 function firstBookLoop() {

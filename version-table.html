@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Library</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./version-table.css">
 </head>
 <body>
 
@@ -14,33 +14,8 @@
   <h1>Library</h1>
   <h2>Books: </h2>
 
-<!--   <div class="content-grid" id="list">
+  <!--   <div class="content-grid" id="list">
   </div> -->
-
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Genre</th>
-        <th>Pages</th>
-        <th>Read</th>
-        <th>Edit</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>The Hobbit</td>
-        <td>J.R.R> Tolkien</td>
-        <td>Fantasy</td>
-        <td>296</td>
-        <td><input type="checkbox"></td>
-        <td><button></button></td>
-        <td><button></button></td>
-      </tr>
-    </tbody>
-  </table>
 
   <!-- Dropdown Button -->
 
@@ -68,26 +43,60 @@
         </div>
         
         <div class="item-3-A">
-          <label for="pages">Pages:</label>
+          <label for="genre">Genre:</label>
         </div>
         <div class="item-3-B">
+          <input type="number" name="genre" id="genre" placeholder="Insert book genre number here">
+        </div>
+
+        <div class="item-4-A">
+          <label for="pages">Pages:</label>
+        </div>
+        <div class="item-4-B">
           <input type="number" name="pages" id="pages" placeholder="Insert book page number here">
         </div>
         
-        <div class="check item-4-A">
+        <div class="check item-5-A">
           <label for="read-box">Read:</label>
         </div>
-        <div class="item-4-B">
+        <div class="item-5-B">
           <input type="checkbox" name="read-box" id="read-box">
         </div>
         
-        <div class="form-btn item-5">
+        <div class="form-btn item-6">
           <button type="button" class="add-btn">Add Book</button>
         </div>
 
     </form>
   </div>
+
+  <!-- Table Section -->
+
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Genre</th>
+        <th>Pages</th>
+        <th>Read</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>The Hobbit</td>
+        <td>J.R.R. Tolkien</td>
+        <td>Fantasy</td>
+        <td>296</td>
+        <td><input type="checkbox"></td>
+        <td><button></button></td>
+        <td><button></button></td>
+      </tr>
+    </tbody>
+  </table>
   
-  <script src="./js.js"></script>
+  <script src="./version-table.js"></script>
 </body>
 </html>
