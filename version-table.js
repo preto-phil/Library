@@ -125,7 +125,7 @@ function addRow() {
     cellTitle.textContent = obj.title;
     cellAuthor.innerText = obj.author;
     cellGenre.innerText = obj.genre;
-    cellPages.innerText = obj.genre;
+    cellPages.innerText = obj.pages;
     cellRead.innerText = "TBC";
     cellEdit.innerText = "TBC";
     cellDelete.innerText = "TBC";
