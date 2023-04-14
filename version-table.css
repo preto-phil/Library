@@ -12,8 +12,9 @@ body {
   font-family: monospace;
 }
 
-h1 {
+.header {
   margin-top: 50px;
+  margin-bottom: 20px;
 
   display: flex;
   justify-content: center;
@@ -22,16 +23,52 @@ h1 {
   font-weight: 700;
 }
 
-h2 {
-  font-size: 2rem;
-  /* font-weight: 700; */
+.span-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 10px;
+  margin-bottom: 30px;
 }
+
+.sub-header {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+
+/* Button Styling */
+
+.drop-btn {
+  display: inline-flex;
+  justify-content: end;
+  align-items: flex-start;
+}
+
+ .drop-btn > button {
+  margin: 0;
+ }
+
+button {
+  padding: 10px;
+
+  margin-left: 10px;
+
+  font-size: 1.5rem;
+
+  border: 1px solid rgb(202, 198, 198);
+  border-radius: 4px;
+
+  cursor: pointer;
+}
+
 
 
 /* Table Styling */
 table {
   border: 1px solid whitesmoke;
   width: 100%;
+  margin-top: 20px;
 }
 
 th {
@@ -49,26 +86,7 @@ th {
 }
 
 
-
-.drop-btn {
-  margin: 50px 0;
-  display: flex;
-  justify-content: center;
-}
-
-button {
-  padding: 10px;
-
-  margin-left: 10px;
-
-  font-size: 1.5rem;
-
-  border: 1px solid rgb(202, 198, 198);
-  border-radius: 4px;
-
-  cursor: pointer;
-}
-
+/* Form Section */
 
 form {
   background-color: rgb(226, 222, 222);
