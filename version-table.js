@@ -16,16 +16,18 @@ let myLibrary = [
     author: "J.R.R Tolkien",
     genre: "Fantasy",
     pages: 296,
-    read: true
   }
 ];
 
 // Book Constructor
-function Book(title, author, genre, pages, read) {
+function Book(title, author, genre, pages, read, edit, dlt) {
   this.title = title
   this.author = author
   this.genre = genre
   this.pages = pages
+/*   this.read = read
+  this.edit = edit
+  this.dlt = dlt */
 /*   this.read = read
   this.info = function() {
 		return(`${title} by ${author}, ${pages} pages`)
@@ -108,7 +110,16 @@ function addToArray() {
   let author = document.getElementById("author").value;
   let genre = document.getElementById("genre").value;
   let pages = document.getElementById("pages").value;
-  let newBook = new Book(title, author, genre, pages);
+/*   let read = document.createElement('input');
+  read.type = 'checkbox';
+  let edit = document.createElement('button');
+  edit.className = "editBtn";
+  edit.innerText = "Edit";
+  let dlt = document.createElement('button');
+  dlt.className = "deleteBtn";
+  dlt.innerText = "Delete"; */
+
+  let newBook = new Book(title, author, genre, pages/* , read, edit, dlt */);
   myLibrary.push(newBook);
   console.log(myLibrary);
 }
@@ -122,12 +133,14 @@ function clearForm() {
 // Function that adds rows and cells to table
 function addRow() {
   let table = document.getElementById("bookTable");
-  let editButton = document.createElement('button');
-  let deleteButton = document.createElement('button');
-  editButton.className = "editBtn";
-  deleteButton.className = "deleteBtn";
-  editButton.innerText = "Edit";
-  deleteButton.innerText = "Delete";
+  let read = document.createElement('input');
+  read.type = 'checkbox';
+  let edit = document.createElement('button');
+  let dlt = document.createElement('button');
+  edit.className = "editBtn";
+  dlt.className = "deleteBtn";
+  edit.innerText = "Edit";
+  dlt.innerText = "Delete";
 
   deleteRows();
   for (let obj of myLibrary) {
@@ -144,9 +157,9 @@ function addRow() {
     cellAuthor.innerText = obj.author;
     cellGenre.innerText = obj.genre;
     cellPages.innerText = obj.pages;
-    cellRead.innerText = "TBC";
-    cellEdit.append(editButton);
-    cellDelete.append(deleteButton);
+    cellRead.append(read);
+    cellEdit.append(edit);
+    cellDelete.append(dlt);
   }
 }
 
