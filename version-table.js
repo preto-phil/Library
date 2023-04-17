@@ -122,6 +122,13 @@ function clearForm() {
 // Function that adds rows and cells to table
 function addRow() {
   let table = document.getElementById("bookTable");
+  let editButton = document.createElement('button');
+  let deleteButton = document.createElement('button');
+  editButton.className = "editBtn";
+  deleteButton.className = "deleteBtn";
+  editButton.innerText = "Edit";
+  deleteButton.innerText = "Delete";
+
   deleteRows();
   for (let obj of myLibrary) {
     let row = table.insertRow(-1);
@@ -138,8 +145,8 @@ function addRow() {
     cellGenre.innerText = obj.genre;
     cellPages.innerText = obj.pages;
     cellRead.innerText = "TBC";
-    cellEdit.innerText = "TBC";
-    cellDelete.innerText = "TBC";
+    cellEdit.append(editButton);
+    cellDelete.append(deleteButton);
   }
 }
 
@@ -154,3 +161,10 @@ function deleteRows() {
 }
 
 ////////////// Experimental area
+
+
+// Delete table row when button clicked
+function deleteSpecRow() {
+  alert("Why u press me?!")
+}
+
