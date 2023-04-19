@@ -9,32 +9,7 @@ function toggleFunction() {
   }
 }
 
-// Library Array
-let myLibrary = [
-  {
-    title: "The Hobbit",
-    author: "J.R.R Tolkien",
-    genre: "Fantasy",
-    pages: 296,
-  }
-];
-
-// Book Constructor
-function Book(title, author, genre, pages, read, edit, dlt) {
-  this.title = title
-  this.author = author
-  this.genre = genre
-  this.pages = pages
-/*   this.read = read
-  this.edit = edit
-  this.dlt = dlt */
-/*   this.read = read
-  this.info = function() {
-		return(`${title} by ${author}, ${pages} pages`)
-	} */
-}
-
-// Variable 
+// Variable Declarations 
 let titleValidity;
 let authorValidity;
 let genreValidity;
@@ -90,19 +65,34 @@ addBtn[0].addEventListener("click", validateForm, function(event) {
   event.preventDefault()
 });
 
-// Function with diff calls
-function callFunction() {
-  if ( titleValidity === true && authorValidity === true && genreValidity === true && pagesValidity === true ) {
-    addToArray();
-    clearForm();
-    addRow();
-  }
+// Reset form
+function clearForm() {
+  document.getElementById("form").reset();
 }
 
-// Call callFunction
-addBtn[0].addEventListener("click", callFunction, function(event) {
-  event.preventDefault()
-});
+
+
+// Library Array
+let myLibrary = [];
+
+
+
+// Book Constructor
+function Book(title, author, genre, pages/* , dlt *//* , read */) {
+  this.title = title
+  this.author = author
+  this.genre = genre
+  this.pages = pages
+/*   this.dlt = dlt */
+  /* this.read = read */
+/*   this.read = read
+  this.edit = edit
+  this.dlt = dlt */
+/*   this.read = read
+  this.info = function() {
+		return(`${title} by ${author}, ${pages} pages`)
+	} */
+}
 
 // link input to title
 function addToArray() {
@@ -110,6 +100,10 @@ function addToArray() {
   let author = document.getElementById("author").value;
   let genre = document.getElementById("genre").value;
   let pages = document.getElementById("pages").value;
+/*   let dlt = document.createElement('button');
+  dlt.className = "deleteBtn";
+  dlt.innerText = "Delete"; */
+  /* let read = readStatus(); */
 /*   let read = document.createElement('input');
   read.type = 'checkbox';
   let edit = document.createElement('button');
@@ -124,45 +118,6 @@ function addToArray() {
   console.log(myLibrary);
 }
 
-
-// Reset form
-function clearForm() {
-  document.getElementById("form").reset();
-}
-
-// Function that adds rows and cells to table
-function addRow() {
-  let table = document.getElementById("bookTable");
-  let read = document.createElement('input');
-  read.type = 'checkbox';
-  let edit = document.createElement('button');
-  let dlt = document.createElement('button');
-  edit.className = "editBtn";
-  dlt.className = "deleteBtn";
-  edit.innerText = "Edit";
-  dlt.innerText = "Delete";
-
-  deleteRows();
-  for (let obj of myLibrary) {
-    let row = table.insertRow(-1);
-    let cellTitle = row.insertCell(0);
-    let cellAuthor = row.insertCell(1);
-    let cellGenre = row.insertCell(2);
-    let cellPages = row.insertCell(3);
-    let cellRead = row.insertCell(4);
-    let cellEdit = row.insertCell(5);
-    let cellDelete = row.insertCell(6);
-  
-    cellTitle.textContent = obj.title;
-    cellAuthor.innerText = obj.author;
-    cellGenre.innerText = obj.genre;
-    cellPages.innerText = obj.pages;
-    cellRead.append(read);
-    cellEdit.append(edit);
-    cellDelete.append(dlt);
-  }
-}
-
 // Function that removes existing rows
 function deleteRows() {
   let tableHeaderRowCount = 1;
@@ -173,6 +128,67 @@ function deleteRows() {
   }
 }
 
+// Function that adds rows and cells to table
+function addRow() {
+  let table = document.getElementById("bookTable");
+/*   let read = document.createElement('input');
+  read.type = 'checkbox';
+  let edit = document.createElement('button');
+  let dlt = document.createElement('button');
+  edit.className = "editBtn";
+  dlt.className = "deleteBtn";
+  edit.innerText = "Edit";
+  dlt.innerText = "Delete"; */
+
+
+
+  deleteRows();
+  for (let obj of myLibrary) {
+    
+    let dlt = document.createElement('button');
+    dlt.className = "deleteBtn";
+    dlt.innerText = "Delete";
+    
+    let row = table.insertRow(-1);
+    let cellTitle = row.insertCell(0);
+    let cellAuthor = row.insertCell(1);
+    let cellGenre = row.insertCell(2);
+    let cellPages = row.insertCell(3);
+    let cellDelete = row.insertCell(4);
+    
+    /* let cellDelete = row.insertCell(4); */
+   /*  let cellRead = row.insertCell(4);
+    let cellEdit = row.insertCell(5);
+    let cellDelete = row.insertCell(6); */
+  
+    cellTitle.textContent = obj.title;
+    cellAuthor.innerText = obj.author;
+    cellGenre.innerText = obj.genre;
+    cellPages.innerText = obj.pages;
+    cellDelete.append(dlt);
+    /* cellDelete.append(dlt); */
+    /* cellRead.append(read);
+    cellEdit.append(edit);
+    cellDelete.append(dlt); */
+  }
+
+}
+
+// Function with diff calls
+function callFunction() {
+  if ( titleValidity === true && authorValidity === true && genreValidity === true && pagesValidity === true ) {
+    addToArray();
+    clearForm();
+    addRow();
+  }
+}
+
+// Call callFunction
+addBtn[0].addEventListener("click", callFunction, function(event) {
+  event.preventDefault()
+});
+
+
 ////////////// Experimental area
 
 
@@ -181,3 +197,12 @@ function deleteSpecRow() {
   alert("Why u press me?!")
 }
 
+let dltBtn = document.getElementsByClassName("deleteBtn");
+dltBtn[0].addEventListener("click", deleteSpecRow);
+
+/*
+function readStatus() {
+  if (document.getElementById('read-box').checked) {
+
+  }
+} */
