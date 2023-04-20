@@ -1,4 +1,29 @@
 
+// Print array items on page load
+window.onload = () => {
+  let table = document.getElementById("bookTable");
+
+  for (let obj of myLibrary) {
+    
+    let dlt = document.createElement('button');
+    dlt.className = "deleteBtn";
+    dlt.innerText = "Delete";
+    
+    let row = table.insertRow(-1);
+    let cellTitle = row.insertCell(0);
+    let cellAuthor = row.insertCell(1);
+    let cellGenre = row.insertCell(2);
+    let cellPages = row.insertCell(3);
+    let cellDelete = row.insertCell(4);
+  
+    cellTitle.textContent = obj.title;
+    cellAuthor.innerText = obj.author;
+    cellGenre.innerText = obj.genre;
+    cellPages.innerText = obj.pages;
+    cellDelete.append(dlt);
+  }
+}
+
 // Dropdown onclick visibility
 function toggleFunction() {
   const targetDiv = document.getElementById("form-section");
@@ -73,7 +98,13 @@ function clearForm() {
 
 
 // Library Array
-let myLibrary = [];
+let myLibrary = [{
+  title: "The Hobbit",
+  author: "J.R.R Tolkien",
+  genre: "Fantasy",
+  pages: 296,
+  read: true
+}];
 
 
 
@@ -180,6 +211,7 @@ function callFunction() {
     addToArray();
     clearForm();
     addRow();
+    console.log(myLibrary.length)
   }
 }
 
@@ -192,13 +224,26 @@ addBtn[0].addEventListener("click", callFunction, function(event) {
 ////////////// Experimental area
 
 
-// Delete table row when button clicked
+/* // Delete table row when button clicked
 function deleteSpecRow() {
-  alert("Why u press me?!")
+  alert("Why u press me?!");
+  console.log("everything is fucked");
 }
 
-let dltBtn = document.getElementsByClassName("deleteBtn");
-dltBtn[0].addEventListener("click", deleteSpecRow);
+
+
+function doThis() {
+
+}
+if (myLibrary.length > 0) {
+  let dltBtn = document.getElementsByClassName("deleteBtn");
+  console.log(dltBtn);
+  console.log(dltBtn[0]);
+  dltBtn[0].addEventListener("click", deleteSpecRow);
+} */
+
+
+
 
 /*
 function readStatus() {
