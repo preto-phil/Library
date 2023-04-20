@@ -1,5 +1,5 @@
 // Library Array
-let myLibrary = [{
+const myLibrary = [{
   title: "The Hobbit",
   author: "J.R.R Tolkien",
   genre: "Fantasy",
@@ -9,7 +9,7 @@ let myLibrary = [{
 
 // Print array items on page load
 window.onload = () => {
-  let table = document.getElementById("body");
+  const table = document.getElementById("body");
 
   for (let obj of myLibrary) {
     
@@ -54,6 +54,11 @@ function toggleFunction() {
   } else {
     targetDiv.style.display = "none";
   }
+  if (document.getElementById('toggle').innerText === "New Book") {
+    document.getElementById('toggle').innerText = "Close"
+  } else {
+    document.getElementById('toggle').innerText = "New Book"
+  }
 }
 
 // Variable Declarations 
@@ -64,16 +69,16 @@ let pagesValidity;
 
 // Validate form
 function validateForm() {
-  let title = document.getElementById("title")
-  let titleValue = document.getElementById("title").value;
-  let author = document.getElementById("author")
-  let authorValue = document.getElementById("author").value;
-  let genre = document.getElementById("genre")
-  let genreValue = document.getElementById("genre").value;
-  let pages = document.getElementById("pages")
-  let pagesValue = document.getElementById("pages").value;
+  const title = document.getElementById("title")
+  const titleValue = document.getElementById("title").value;
+  const author = document.getElementById("author")
+  const authorValue = document.getElementById("author").value;
+  const genre = document.getElementById("genre")
+  const genreValue = document.getElementById("genre").value;
+  const pages = document.getElementById("pages")
+  const pagesValue = document.getElementById("pages").value;
   
-  if (titleValue == "") {
+  if (titleValue === "") {
     title.classList.add("invalidTitle");
     titleValidity = false;
   } else {
@@ -81,7 +86,7 @@ function validateForm() {
     titleValidity = true;
   }
 
-  if (authorValue == "") {
+  if (authorValue === "") {
     author.classList.add("invalidAuthor");
     authorValidity = false;
   } else {
@@ -89,7 +94,7 @@ function validateForm() {
     authorValidity = true;
   }
   
-  if (genreValue == "") {
+  if (genreValue === "") {
     genre.classList.add("invalidGenre");
     genreValidity = false;
   } else {
@@ -97,7 +102,7 @@ function validateForm() {
     genreValidity = true;
   }
   
-  if (pagesValue == "" || pagesValue == 0) {
+  if (pagesValue === "" || pagesValue === 0) {
     pages.classList.add("invalidPages");
     pagesValidity = false;
   } else {
@@ -108,7 +113,7 @@ function validateForm() {
 
 // Call validateForm
 const addBtn = document.getElementsByClassName("add-btn");
-addBtn[0].addEventListener("click", validateForm, function(event) {
+addBtn[0].addEventListener("click", validateForm, (event) => {
   event.preventDefault()
 });
 
@@ -128,36 +133,26 @@ function Book(title, author, genre, pages, read) {
 
 // link input to title
 function addToArray() {
-  let title = document.getElementById("title").value;
-  let author = document.getElementById("author").value;
-  let genre = document.getElementById("genre").value;
-  let pages = document.getElementById("pages").value;
+  const title = document.getElementById("title").value;
+  const author = document.getElementById("author").value;
+  const genre = document.getElementById("genre").value;
+  const pages = document.getElementById("pages").value;
   let read;
   if (document.getElementById('read-box').checked == true) {
     read = "Read";
   } else {
     read = "Not Read";
   }
-  console.log(read);
   
-  let newBook = new Book(title, author, genre, pages, read);
+  const newBook = new Book(title, author, genre, pages, read);
   myLibrary.push(newBook);
-  console.log(myLibrary);
-}
-
-// Function that removes obj from array
-function dltArrayObj() {
-  let index = myLibrary.indexOf(5);    
-  myLibrary.splice(index, 1);
-  console.log(myLibrary); 
-  addRow();
 }
 
 // Function that removes existing rows
 function deleteRows() {
-  let tableHeaderRowCount = 1;
-  let table = document.getElementById("bookTable");
-  let rowCount = table.rows.length;
+  const tableHeaderRowCount = 1;
+  const table = document.getElementById("bookTable");
+  const rowCount = table.rows.length;
   for (let i = tableHeaderRowCount; i < rowCount; i++) {
     table.deleteRow(tableHeaderRowCount);
   }
@@ -166,7 +161,7 @@ function deleteRows() {
 // Function that adds rows and cells to table
 function addRow() {
   
-  let table = document.getElementById("body");
+  const table = document.getElementById("body");
 
   deleteRows();
   for (let obj of myLibrary) {
@@ -205,17 +200,23 @@ function addRow() {
   }
 }
 
+// Function that removes obj from array
+function dltArrayObj() {
+  const index = myLibrary.indexOf(5);    
+  myLibrary.splice(index, 1);
+  addRow();
+}
+
 // Function with diff calls
 function callFunction() {
   if ( titleValidity === true && authorValidity === true && genreValidity === true && pagesValidity === true ) {
     addToArray();
     clearForm();
     addRow();
-    console.log(myLibrary.length)
   }
 }
 
 // Call callFunction
-addBtn[0].addEventListener("click", callFunction, function(event) {
+addBtn[0].addEventListener("click", callFunction, (event) => {
   event.preventDefault()
 });

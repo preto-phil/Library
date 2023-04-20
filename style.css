@@ -47,6 +47,7 @@ body {
 
  .drop-btn > button {
   margin: 0;
+  width: 140px;
  }
 
 button {
