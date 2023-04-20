@@ -1,3 +1,11 @@
+// Library Array
+let myLibrary = [{
+  title: "The Hobbit",
+  author: "J.R.R Tolkien",
+  genre: "Fantasy",
+  pages: 296,
+  read: "Read"
+}];
 
 // Print array items on page load
 window.onload = () => {
@@ -15,7 +23,7 @@ window.onload = () => {
  
     let rd = document.createElement('button');
     rd.className = "readBtn";
-    rd.innerText = readStatus2();
+    rd.innerText = obj.read;
     rd.addEventListener('click', () => {
       if (rd.innerText == "Read") {
         rd.innerText = "Not Read";
@@ -109,19 +117,6 @@ function clearForm() {
   document.getElementById("form").reset();
 }
 
-
-
-// Library Array
-let myLibrary = [{
-  title: "The Hobbit",
-  author: "J.R.R Tolkien",
-  genre: "Fantasy",
-  pages: 296,
-  read: "Read"
-}];
-
-
-
 // Book Constructor
 function Book(title, author, genre, pages, read) {
   this.title = title
@@ -137,12 +132,14 @@ function addToArray() {
   let author = document.getElementById("author").value;
   let genre = document.getElementById("genre").value;
   let pages = document.getElementById("pages").value;
-  let read = readStatus(); 
-/* 
-  let read = document.createElement('input');
-  read.type = 'checkbox';
-*/
-
+  let read;
+  if (document.getElementById('read-box').checked == true) {
+    read = "Read";
+  } else {
+    read = "Not Read";
+  }
+  console.log(read);
+  
   let newBook = new Book(title, author, genre, pages, read);
   myLibrary.push(newBook);
   console.log(myLibrary);
@@ -170,15 +167,6 @@ function deleteRows() {
 function addRow() {
   
   let table = document.getElementById("body");
-  /*   
-  let read = document.createElement('input');
-  read.type = 'checkbox';
-  let edit = document.createElement('button');
-  edit.className = "editBtn";
-  edit.innerText = "Edit";
-*/
-
-
 
   deleteRows();
   for (let obj of myLibrary) {
@@ -190,16 +178,11 @@ function addRow() {
     let cellPages = row.insertCell(3);
     let cellRead = row.insertCell(4);
     let cellDelete = row.insertCell(5);
-    
-  /*  
-    let cellRead = row.insertCell(4);
-    let cellEdit = row.insertCell(5);
-    let cellDelete = row.insertCell(6); 
-  */
   
     let rd = document.createElement('button');
     rd.className = "readBtn";
-    rd.innerText = readStatus();
+    rd.innerText = obj.read;
+
     rd.addEventListener('click', () => {
       if (rd.innerText == "Read") {
         rd.innerText = "Not Read";
@@ -219,13 +202,7 @@ function addRow() {
     cellPages.innerText = obj.pages;
     cellRead.append(rd);
     cellDelete.append(dlt);
-  /* 
-    cellRead.append(read);
-    cellEdit.append(edit);
-  */
-
   }
-
 }
 
 // Function with diff calls
@@ -242,33 +219,3 @@ function callFunction() {
 addBtn[0].addEventListener("click", callFunction, function(event) {
   event.preventDefault()
 });
-
-
-////////////// Experimental area
-
-function readStatus() {
-  if (document.getElementById('read-box').checked == true) {
-    return "Read";
-  } else {
-    return "Not Read";
-  }
-}
-
-function readStatus2() {
-  if (myLibrary.read == "Read") {
-    return "Read";
-  } else {
-    return "Not Read";
-  }
-}
-
-
-
-/* function changeStatus() {
-  
-  if (rd.innerText == "Read") {
-    rd.innerText = "Not Read";
-  } else {
-    rd.innerText = "Read";
-  }
-} */
