@@ -224,87 +224,12 @@ addBtn[0].addEventListener("click", callFunction, function(event) {
   event.preventDefault()
 });
 
-console.log(addBtn);
-console.log(addBtn[0]);
 
-let dltBtn = document.getElementsByClassName("deleteBtn");
-console.log(dltBtn);
-console.log(dltBtn[0])
 ////////////// Experimental area
 
-/* const myTimeout = setTimeout(doThis, 2000); */
-
-// Delete table row when button clicked
-function deleteSpecRow() {
-  alert("Why u press me?!");
-  console.log("everything is fucked");
-}
-/* 
-function doThis() {
-  if (myLibrary.length > 0) {
-    let dltBtn = document.getElementsByClassName("deleteBtn");
-    console.log(dltBtn);
-    console.log(dltBtn[0]);
-    dltBtn[0].addEventListener("click", dltArrayObj);
-  } 
-}
-
-console.log(myLibrary)
-
-function dltArrayObj() {
-  let index = myLibrary.indexOf(5);
-  if (index > 1) {
-    myLibrary.splice(index, 1);
-    console.log(myLibrary); 
-    addRow();
-  }
-}
-
-const anotherTO = setTimeout(doThat, 10000);
-function doThat() {
-  let delBtn = document.getElementsByClassName("deleteBtn");
-  delBtn[0].addEventListener("click", dltArrayObj);
-}
-
-let delBtn = document.getElementsByClassName("deleteBtn");
-delBtn[0].addEventListener("click", deleteSpecRow);
-
- */
 /*
 function readStatus() {
   if (document.getElementById('read-box').checked) {
 
   }
-} */
-
-/* if (myLibrary.length > 0) {
-  const dltBtn = document.getElementsByClassName("deleteBtn");
-  console.log(dltBtn);
-  console.log(dltBtn[0]);
-  dltBtn[0].addEventListener("click", delete_row);
-} 
-
-function delete_row(e) {
-  e.parentElement.remove();
-} */
-
-/* function deleteRow(r) {
-  let i = r.parentNode.parentNode.rowIndex;
-  document.getElementById('body').deleteRow(i);
-} */
-
-/* function dltRow()  {  
-  let table = document.getElementById("body");  
-  let rows = table.rows.length;  
-  for(let i = rows - 1; i > 0; i--)  
-  {  
-    if(table.rows[i].cells[0].children[0].checked)  
-      {  
-        table.deleteRow(i);  
-      }  
-  }
-} */
-
-/* function dltRow(e) {
-  e.parentElement.remove();
 } */
