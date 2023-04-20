@@ -5,23 +5,35 @@ window.onload = () => {
 
   for (let obj of myLibrary) {
     
-    let dlt = document.createElement('button');
-    dlt.className = "deleteBtn";
-    dlt.innerText = "Delete";
-    dlt.addEventListener('click', dltArrayObj)
-
-    
     let row = table.insertRow(-1);
     let cellTitle = row.insertCell(0);
     let cellAuthor = row.insertCell(1);
     let cellGenre = row.insertCell(2);
     let cellPages = row.insertCell(3);
-    let cellDelete = row.insertCell(4);
-  
+    let cellRead = row.insertCell(4);
+    let cellDelete = row.insertCell(5);
+ 
+    let rd = document.createElement('button');
+    rd.className = "readBtn";
+    rd.innerText = readStatus();
+    rd.addEventListener('click', () => {
+      if (rd.innerText == "Read") {
+        rd.innerText = "Not Read";
+      } else {
+        rd.innerText = "Read";
+      }
+    });
+    
+    let dlt = document.createElement('button');
+    dlt.className = "deleteBtn";
+    dlt.innerText = "Delete";
+    dlt.addEventListener('click', dltArrayObj)
+
     cellTitle.textContent = obj.title;
     cellAuthor.innerText = obj.author;
     cellGenre.innerText = obj.genre;
     cellPages.innerText = obj.pages;
+    cellRead.append(rd);
     cellDelete.append(dlt);
   }
 }
@@ -111,15 +123,12 @@ let myLibrary = [{
 
 
 // Book Constructor
-function Book(title, author, genre, pages) {
+function Book(title, author, genre, pages, read) {
   this.title = title
   this.author = author
   this.genre = genre
   this.pages = pages
-  /* 
   this.read = read 
-  */
-
 }
 
 // link input to title
@@ -128,16 +137,13 @@ function addToArray() {
   let author = document.getElementById("author").value;
   let genre = document.getElementById("genre").value;
   let pages = document.getElementById("pages").value;
-
-/* 
   let read = readStatus(); 
-*/
 /* 
   let read = document.createElement('input');
   read.type = 'checkbox';
 */
 
-  let newBook = new Book(title, author, genre, pages/* , read */);
+  let newBook = new Book(title, author, genre, pages, read);
   myLibrary.push(newBook);
   console.log(myLibrary);
 }
@@ -182,7 +188,8 @@ function addRow() {
     let cellAuthor = row.insertCell(1);
     let cellGenre = row.insertCell(2);
     let cellPages = row.insertCell(3);
-    let cellDelete = row.insertCell(4);
+    let cellRead = row.insertCell(4);
+    let cellDelete = row.insertCell(5);
     
   /*  
     let cellRead = row.insertCell(4);
@@ -190,15 +197,27 @@ function addRow() {
     let cellDelete = row.insertCell(6); 
   */
   
+    let rd = document.createElement('button');
+    rd.className = "readBtn";
+    rd.innerText = readStatus();
+    rd.addEventListener('click', () => {
+      if (rd.innerText == "Read") {
+        rd.innerText = "Not Read";
+      } else {
+        rd.innerText = "Read";
+      }
+    });
+
     let dlt = document.createElement('button');
     dlt.className = "deleteBtn";
     dlt.innerText = "Delete";
-    dlt.addEventListener('click', dltArrayObj)
+    dlt.addEventListener('click', dltArrayObj);
 
     cellTitle.textContent = obj.title;
     cellAuthor.innerText = obj.author;
     cellGenre.innerText = obj.genre;
     cellPages.innerText = obj.pages;
+    cellRead.append(rd);
     cellDelete.append(dlt);
   /* 
     cellRead.append(read);
@@ -227,9 +246,19 @@ addBtn[0].addEventListener("click", callFunction, function(event) {
 
 ////////////// Experimental area
 
-/*
 function readStatus() {
-  if (document.getElementById('read-box').checked) {
+  if (document.getElementById('read-box').checked == true) {
+    return "Read";
+  } else {
+    return "Not Read";
+  }
+}
 
+/* function changeStatus() {
+  
+  if (rd.innerText == "Read") {
+    rd.innerText = "Not Read";
+  } else {
+    rd.innerText = "Read";
   }
 } */
