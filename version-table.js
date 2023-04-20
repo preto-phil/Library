@@ -8,6 +8,8 @@ window.onload = () => {
     let dlt = document.createElement('button');
     dlt.className = "deleteBtn";
     dlt.innerText = "Delete";
+    dlt.addEventListener('click', dltArrayObj)
+
     
     let row = table.insertRow(-1);
     let cellTitle = row.insertCell(0);
@@ -140,6 +142,14 @@ function addToArray() {
   console.log(myLibrary);
 }
 
+// Function that removes obj from array
+function dltArrayObj() {
+  let index = myLibrary.indexOf(5);    
+  myLibrary.splice(index, 1);
+  console.log(myLibrary); 
+  addRow();
+}
+
 // Function that removes existing rows
 function deleteRows() {
   let tableHeaderRowCount = 1;
@@ -149,12 +159,6 @@ function deleteRows() {
     table.deleteRow(tableHeaderRowCount);
   }
 }
-
-// Declare variable
-let dlt = document.createElement('button');
-dlt.className = "deleteBtn";
-dlt.innerText = "Delete";
-
 
 // Function that adds rows and cells to table
 function addRow() {
@@ -186,6 +190,11 @@ function addRow() {
     let cellDelete = row.insertCell(6); 
   */
   
+    let dlt = document.createElement('button');
+    dlt.className = "deleteBtn";
+    dlt.innerText = "Delete";
+    dlt.addEventListener('click', dltArrayObj)
+
     cellTitle.textContent = obj.title;
     cellAuthor.innerText = obj.author;
     cellGenre.innerText = obj.genre;
@@ -223,26 +232,44 @@ console.log(dltBtn);
 console.log(dltBtn[0])
 ////////////// Experimental area
 
+/* const myTimeout = setTimeout(doThis, 2000); */
 
 // Delete table row when button clicked
 function deleteSpecRow() {
   alert("Why u press me?!");
   console.log("everything is fucked");
 }
-
+/* 
 function doThis() {
   if (myLibrary.length > 0) {
     let dltBtn = document.getElementsByClassName("deleteBtn");
     console.log(dltBtn);
     console.log(dltBtn[0]);
-    dltBtn[0].addEventListener("click", deleteSpecRow);
+    dltBtn[0].addEventListener("click", dltArrayObj);
   } 
 }
 
+console.log(myLibrary)
 
-const myTimeout = setTimeout(doThis, 5000);
+function dltArrayObj() {
+  let index = myLibrary.indexOf(5);
+  if (index > 1) {
+    myLibrary.splice(index, 1);
+    console.log(myLibrary); 
+    addRow();
+  }
+}
 
+const anotherTO = setTimeout(doThat, 10000);
+function doThat() {
+  let delBtn = document.getElementsByClassName("deleteBtn");
+  delBtn[0].addEventListener("click", dltArrayObj);
+}
 
+let delBtn = document.getElementsByClassName("deleteBtn");
+delBtn[0].addEventListener("click", deleteSpecRow);
+
+ */
 /*
 function readStatus() {
   if (document.getElementById('read-box').checked) {
@@ -261,8 +288,23 @@ function delete_row(e) {
   e.parentElement.remove();
 } */
 
-/* function deleteRow(r)
-{
-var i=r.parentNode.parentNode.rowIndex;
-document.getElementById('myTable').deleteRow(i);
+/* function deleteRow(r) {
+  let i = r.parentNode.parentNode.rowIndex;
+  document.getElementById('body').deleteRow(i);
+} */
+
+/* function dltRow()  {  
+  let table = document.getElementById("body");  
+  let rows = table.rows.length;  
+  for(let i = rows - 1; i > 0; i--)  
+  {  
+    if(table.rows[i].cells[0].children[0].checked)  
+      {  
+        table.deleteRow(i);  
+      }  
+  }
+} */
+
+/* function dltRow(e) {
+  e.parentElement.remove();
 } */
