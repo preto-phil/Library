@@ -15,7 +15,7 @@ window.onload = () => {
  
     let rd = document.createElement('button');
     rd.className = "readBtn";
-    rd.innerText = readStatus();
+    rd.innerText = readStatus2();
     rd.addEventListener('click', () => {
       if (rd.innerText == "Read") {
         rd.innerText = "Not Read";
@@ -117,7 +117,7 @@ let myLibrary = [{
   author: "J.R.R Tolkien",
   genre: "Fantasy",
   pages: 296,
-  read: true
+  read: "Read"
 }];
 
 
@@ -253,6 +253,16 @@ function readStatus() {
     return "Not Read";
   }
 }
+
+function readStatus2() {
+  if (myLibrary.read == "Read") {
+    return "Read";
+  } else {
+    return "Not Read";
+  }
+}
+
+
 
 /* function changeStatus() {
   
