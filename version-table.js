@@ -1,7 +1,7 @@
 
 // Print array items on page load
 window.onload = () => {
-  let table = document.getElementById("bookTable");
+  let table = document.getElementById("body");
 
   for (let obj of myLibrary) {
     
@@ -109,20 +109,15 @@ let myLibrary = [{
 
 
 // Book Constructor
-function Book(title, author, genre, pages/* , dlt *//* , read */) {
+function Book(title, author, genre, pages) {
   this.title = title
   this.author = author
   this.genre = genre
   this.pages = pages
-/*   this.dlt = dlt */
-  /* this.read = read */
-/*   this.read = read
-  this.edit = edit
-  this.dlt = dlt */
-/*   this.read = read
-  this.info = function() {
-		return(`${title} by ${author}, ${pages} pages`)
-	} */
+  /* 
+  this.read = read 
+  */
+
 }
 
 // link input to title
@@ -131,20 +126,16 @@ function addToArray() {
   let author = document.getElementById("author").value;
   let genre = document.getElementById("genre").value;
   let pages = document.getElementById("pages").value;
-/*   let dlt = document.createElement('button');
-  dlt.className = "deleteBtn";
-  dlt.innerText = "Delete"; */
-  /* let read = readStatus(); */
-/*   let read = document.createElement('input');
-  read.type = 'checkbox';
-  let edit = document.createElement('button');
-  edit.className = "editBtn";
-  edit.innerText = "Edit";
-  let dlt = document.createElement('button');
-  dlt.className = "deleteBtn";
-  dlt.innerText = "Delete"; */
 
-  let newBook = new Book(title, author, genre, pages/* , read, edit, dlt */);
+/* 
+  let read = readStatus(); 
+*/
+/* 
+  let read = document.createElement('input');
+  read.type = 'checkbox';
+*/
+
+  let newBook = new Book(title, author, genre, pages/* , read */);
   myLibrary.push(newBook);
   console.log(myLibrary);
 }
@@ -159,26 +150,28 @@ function deleteRows() {
   }
 }
 
+// Declare variable
+let dlt = document.createElement('button');
+dlt.className = "deleteBtn";
+dlt.innerText = "Delete";
+
+
 // Function that adds rows and cells to table
 function addRow() {
-  let table = document.getElementById("bookTable");
-/*   let read = document.createElement('input');
+  
+  let table = document.getElementById("body");
+  /*   
+  let read = document.createElement('input');
   read.type = 'checkbox';
   let edit = document.createElement('button');
-  let dlt = document.createElement('button');
   edit.className = "editBtn";
-  dlt.className = "deleteBtn";
   edit.innerText = "Edit";
-  dlt.innerText = "Delete"; */
+*/
 
 
 
   deleteRows();
   for (let obj of myLibrary) {
-    
-    let dlt = document.createElement('button');
-    dlt.className = "deleteBtn";
-    dlt.innerText = "Delete";
     
     let row = table.insertRow(-1);
     let cellTitle = row.insertCell(0);
@@ -187,20 +180,22 @@ function addRow() {
     let cellPages = row.insertCell(3);
     let cellDelete = row.insertCell(4);
     
-    /* let cellDelete = row.insertCell(4); */
-   /*  let cellRead = row.insertCell(4);
+  /*  
+    let cellRead = row.insertCell(4);
     let cellEdit = row.insertCell(5);
-    let cellDelete = row.insertCell(6); */
+    let cellDelete = row.insertCell(6); 
+  */
   
     cellTitle.textContent = obj.title;
     cellAuthor.innerText = obj.author;
     cellGenre.innerText = obj.genre;
     cellPages.innerText = obj.pages;
     cellDelete.append(dlt);
-    /* cellDelete.append(dlt); */
-    /* cellRead.append(read);
+  /* 
+    cellRead.append(read);
     cellEdit.append(edit);
-    cellDelete.append(dlt); */
+  */
+
   }
 
 }
@@ -220,29 +215,32 @@ addBtn[0].addEventListener("click", callFunction, function(event) {
   event.preventDefault()
 });
 
+console.log(addBtn);
+console.log(addBtn[0]);
 
+let dltBtn = document.getElementsByClassName("deleteBtn");
+console.log(dltBtn);
+console.log(dltBtn[0])
 ////////////// Experimental area
 
 
-/* // Delete table row when button clicked
+// Delete table row when button clicked
 function deleteSpecRow() {
   alert("Why u press me?!");
   console.log("everything is fucked");
 }
 
-
-
 function doThis() {
-
+  if (myLibrary.length > 0) {
+    let dltBtn = document.getElementsByClassName("deleteBtn");
+    console.log(dltBtn);
+    console.log(dltBtn[0]);
+    dltBtn[0].addEventListener("click", deleteSpecRow);
+  } 
 }
-if (myLibrary.length > 0) {
-  let dltBtn = document.getElementsByClassName("deleteBtn");
-  console.log(dltBtn);
-  console.log(dltBtn[0]);
-  dltBtn[0].addEventListener("click", deleteSpecRow);
-} */
 
 
+const myTimeout = setTimeout(doThis, 5000);
 
 
 /*
@@ -250,4 +248,21 @@ function readStatus() {
   if (document.getElementById('read-box').checked) {
 
   }
+} */
+
+/* if (myLibrary.length > 0) {
+  const dltBtn = document.getElementsByClassName("deleteBtn");
+  console.log(dltBtn);
+  console.log(dltBtn[0]);
+  dltBtn[0].addEventListener("click", delete_row);
+} 
+
+function delete_row(e) {
+  e.parentElement.remove();
+} */
+
+/* function deleteRow(r)
+{
+var i=r.parentNode.parentNode.rowIndex;
+document.getElementById('myTable').deleteRow(i);
 } */
