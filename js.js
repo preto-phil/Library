@@ -62,6 +62,17 @@ function toggleFunction() {
   }
 }
 
+
+// Prevent symbols in input type number
+function preventSymbols() {
+  document.getElementById("pages").addEventListener("keypress", function (e) {
+    if (e.which < 48 || e.which > 57)
+    {
+        e.preventDefault();
+    }
+  });
+}
+
 // Variable Declarations
 let titleValidity;
 let authorValidity;
