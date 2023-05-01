@@ -47,8 +47,9 @@ window.onload = () => {
   }
 };
 
-// Dropdown onclick visibility
-function toggleFunction() {
+// Dropdown onclick visibility of form
+  // called in index.html
+function toggleFormFunction() {
   const targetDiv = document.getElementById('form-section');
   if (targetDiv.style.display === 'none') {
     targetDiv.style.display = 'block';
@@ -62,6 +63,16 @@ function toggleFunction() {
   }
 }
 
+// Hide list when adding book
+  // called in index.html
+function toggleListFunction() {
+  const targetDiv = document.getElementById('bookTable');
+  if (targetDiv.style.display === 'none') {
+    targetDiv.style.display = 'table';
+  } else {
+    targetDiv.style.display = 'none';
+  }
+}
 
 // Prevent symbols in input type number
 function preventSymbols() {
@@ -73,7 +84,7 @@ function preventSymbols() {
   });
 }
 
-// Variable Declarations
+// Root block scope variables - used in form validation
 let titleValidity;
 let authorValidity;
 let genreValidity;
