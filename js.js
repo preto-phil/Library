@@ -89,7 +89,6 @@ function validateForm() {
   const genreValue = document.getElementById('genre').value;
   const pages = document.getElementById('pages');
   const pagesValue = document.getElementById('pages').value;
-  console.log(pagesValue);
 
   if (titleValue === '') {
     title.classList.add('invalidTitle');
@@ -115,7 +114,7 @@ function validateForm() {
     genreValidity = true;
   }
 
-  if (pagesValue === '0'  || !pagesValue.match(/[0-9]/)) {
+  if (pagesValue === '' || pagesValue === '0') {
     pages.classList.add('invalidPages');
     pagesValidity = false;
   } else {
