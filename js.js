@@ -78,6 +78,7 @@ function validateForm() {
   const genreValue = document.getElementById('genre').value;
   const pages = document.getElementById('pages');
   const pagesValue = document.getElementById('pages').value;
+  console.log(pagesValue);
 
   if (titleValue === '') {
     title.classList.add('invalidTitle');
@@ -103,7 +104,7 @@ function validateForm() {
     genreValidity = true;
   }
 
-  if (pagesValue === '' || pagesValue === 0) {
+  if (pagesValue === '0'  || !pagesValue.match(/[0-9]/)) {
     pages.classList.add('invalidPages');
     pagesValidity = false;
   } else {
@@ -123,13 +124,15 @@ function clearForm() {
   document.getElementById('form').reset();
 }
 
-// Book Constructor
-function Book(title, author, genre, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.genre = genre;
-  this.pages = pages;
-  this.read = read;
+// Book Class
+class Book {
+  constructor(title, author, genre, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.genre = genre;
+    this.pages = pages;
+    this.read = read;
+  }
 }
 
 // link input to title
