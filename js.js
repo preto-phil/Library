@@ -66,11 +66,13 @@ function toggleFormFunction() {
 // Hide list when adding book
   // called in index.html
 function toggleListFunction() {
-  const targetDiv = document.getElementById('bookTable');
-  if (targetDiv.style.display === 'none') {
-    targetDiv.style.display = 'table';
-  } else {
+  const targetDiv = document.getElementById('bookTable'); 
+  console.log(targetDiv.style.display);
+
+  if (targetDiv.style.display === 'table') {
     targetDiv.style.display = 'none';
+  } else if (targetDiv.style.display === 'none') {
+    targetDiv.style.display = 'table';
   }
 }
 

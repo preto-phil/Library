@@ -2,25 +2,42 @@
 * {
   box-sizing: border-box;
   /* border: 1px solid black; */
+
 }
 
 body {
-  width: 50%;
+  height: 100%;
+  background-color: rgb(41, 39, 39);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.content-section {
+  width: 60%;
+  height: 100%;
   margin: auto;
   background-color: rgb(90, 88, 88);
   color: whitesmoke;
   font-family: monospace;
+  padding: 50px;
+
 }
 
 .header {
-  margin-top: 50px;
-  margin-bottom: 20px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-bottom: 30px;
 
   display: flex;
   justify-content: center;
 
   font-size: 4rem;
   font-weight: 700;
+
+  background-color: rgb(107, 106, 106);
+  border-radius: 5px;
 }
 
 .span-header {
@@ -67,20 +84,31 @@ button {
 
 /* Table Styling */
 table {
-  border: 1px solid whitesmoke;
+  border: 3px solid rgb(41, 39, 39);
   width: 100%;
   margin-top: 20px;
-  display: table;
+  border-radius: 5px;
+  padding: 30px;
+  background-color: rgb(226, 222, 222);
+}
+
+table > thead,
+table > tbody{
+  background-color: rgb(90, 88, 88);
+  border: 3px solid rgb(41, 39, 39);
 }
 
 th {
   font-size: 1.2rem;
+  color: rgb(204, 199, 199);
+  border: 3px solid rgb(41, 39, 39) !important;
 }
 
 td {
   text-align: center;
   font-size: 1rem;
   width: 60px;
+  border: 3px solid rgb(41, 39, 39) !important;
 }
 
 td > button {
@@ -110,6 +138,8 @@ th {
 form {
   background-color: rgb(226, 222, 222);
   color: rgb(51, 47, 47);
+  padding: 20px 0;
+  border-radius: 5px;
 }
 
 
