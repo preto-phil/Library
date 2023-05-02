@@ -37,6 +37,7 @@ body {
   font-weight: 700;
 
   background-color: rgb(107, 106, 106);
+  border: 3px solid rgb(41, 39, 39);
   border-radius: 5px;
 }
 
@@ -89,7 +90,7 @@ table {
   margin-top: 20px;
   border-radius: 5px;
   padding: 30px;
-  background-color: rgb(226, 222, 222);
+  background-color: rgb(107, 106, 106);
 }
 
 table > thead,
@@ -149,7 +150,7 @@ form {
   display: grid;
   grid-template-rows: repeat(6, 60px);
   grid-template-columns: 1fr 9fr;
-  border: 1px solid black;
+  border: 3px solid rgb(41, 39, 39);
 }
 
 .form-grid > div {
