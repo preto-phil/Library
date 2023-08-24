@@ -227,8 +227,10 @@ function addRow() {
 
 // Function that removes obj from array
 function dltArrayObj() {
-  const index = myLibrary.indexOf(5);
-  myLibrary.splice(index, 1);
+  const dltBtn = event.target;
+  const row = dltBtn.parentNode.parentNode;
+  const rowIndex = row.rowIndex - 1;
+  myLibrary.splice(rowIndex, 1);
   addRow();
 }
 
@@ -244,6 +246,7 @@ function callFunction() {
     clearForm();
     addRow();
   }
+  console.log(myLibrary)
 }
 
 // Call callFunction
